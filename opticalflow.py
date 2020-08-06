@@ -13,7 +13,7 @@ class OpticalFlow(object):
         if os.path.exists('./videos/opticalflow') is False:
             os.makedirs('./videos/opticalflow')
 
-        self.file_name = str(input('Enter saving file name: '))
+        file_name = str(input('Enter saving file name: '))
 
         parser = arg_parser()
         args = parser.parse_args()
@@ -46,7 +46,7 @@ class OpticalFlow(object):
         fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
         self.writer = cv2.VideoWriter(
             './videos/opticalflow/{}.mp4'.format(
-                self.file_name), fourcc, frame_rate, size
+                file_name), fourcc, frame_rate, size
         )
 
     def _iterate(self, old_gray, p0, mask):
