@@ -7,6 +7,7 @@ import numpy as np
 
 from args import arg_parser
 
+
 class OpticalFlow(object):
     def __init__(self):
         if os.path.exists('./videos/opticalflow') is False:
