@@ -5,6 +5,7 @@ import os
 import cv2
 import numpy as np
 
+from args import arg_parser
 
 class OpticalFlow(object):
     def __init__(self):
@@ -13,7 +14,13 @@ class OpticalFlow(object):
 
         self.file_name = str(input('Enter saving file name: '))
 
-        self.cap = cv2.VideoCapture(0)
+        parser = arg_parser()
+        args = parser.parse_args()
+
+        if args.target is not None:
+            self.cap = cv2.VideoCapture(args.target)
+        else:
+            self.cap = cv2.VideoCapture(0)
 
         self.feature_params = dict(
             maxCorners=100,

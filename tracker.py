@@ -5,6 +5,8 @@ import time
 
 import cv2
 
+from args import arg_parser
+
 
 class Tracker(object):
     def __init__(self):
@@ -13,7 +15,13 @@ class Tracker(object):
         if os.path.exists('./videos/tracking') is False:
             os.makedirs('./videos/tracking')
 
-        self.cap = cv2.VideoCapture(0)
+        parser = arg_parser()
+        args = parser.parse_args()
+
+        if args.target is not None:
+            self.cap = cv2.VideoCapture(args.target)
+        else:
+            self.cap = cv2.VideoCapture(0)
 
         w = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         h = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
