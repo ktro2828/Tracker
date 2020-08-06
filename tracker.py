@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-
+import os
 import time
 
 import cv2
@@ -9,7 +9,20 @@ import cv2
 class Tracker(object):
     def __init__(self):
         self.trakcer, self.tracker_name = self._select_tracker()
+
+        if os.path.exists('./videos/') is False:
+            os.makedirs('./videos')
+
         self.cap = cv2.VideoCapture(0)
+
+        w = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        h = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        size = tuple(w, h)
+        frame_rate = int(self.cap.get(cv2.CAP_PROP_FPS))
+        fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
+        self.writer = cv2.VideoWriter(
+            './videos/{}.mp4'.format(self.tracker_name),
+            fourcc, frame_rate, size)
 
     def _select_tracker(self):
         print('Which Tracker API do you use??')
@@ -65,6 +78,7 @@ class Tracker(object):
                         color=(0, 255, 0),
                         thickness=3)
 
+            self.writer.write(frame)
             cv2.imshow(self.tracker_name, frame)
             key = cv2.waitKey(1) & 0xff
             if key == 27:
@@ -80,6 +94,7 @@ class Tracker(object):
         self._iterate()
 
         self.cap.release()
+        self.writer.release()
         cv2.destroyAllWindows()
 
 
