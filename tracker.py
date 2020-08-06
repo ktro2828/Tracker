@@ -18,9 +18,7 @@ class Tracker(object):
         print('2: KCF')
         print('3: MLD')
         print('4: MedianFlow')
-        choice = input('Please select your tracker number: ')
-        print(choice)
-        print(type(choice))
+        choice = int(input('Please select your tracker number: '))
 
         if choice == 0:
             tracker = cv2.TrackerBoosting_create()
