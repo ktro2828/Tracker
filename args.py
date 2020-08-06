@@ -9,3 +9,5 @@ def arg_parser():
 
     parser.add_argument('-t', '--target', type=str,
                         default=None, help='target video file path')
+
+    return parser
