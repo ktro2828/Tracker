@@ -17,7 +17,7 @@ class Tracker(object):
 
         w = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         h = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        size = tuple(w, h)
+        size = tuple((w, h))
         frame_rate = int(self.cap.get(cv2.CAP_PROP_FPS))
         fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
         self.writer = cv2.VideoWriter(
