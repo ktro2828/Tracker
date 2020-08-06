@@ -9,7 +9,7 @@ import numpy as np
 class OpticalFlow(object):
     def __init__(self):
         if os.path.exists('./videos/opticalflow') is False:
-            os.makedirs('./vodeos/opticalflow')
+            os.makedirs('./videos/opticalflow')
 
         self.file_name = str(input('Enter saving file name: '))
 
