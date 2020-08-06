@@ -25,7 +25,8 @@ class OpticalFlow(object):
         self.lk_params = dict(
             winSize=(15, 15),
             maxLevel=2,
-            crteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03)
+            criteria=(cv2.TERM_CRITERIA_EPS |
+                      cv2.TERM_CRITERIA_COUNT, 10, 0.03)
         )
 
         self.color = np.random.randint(0, 255, (100, 3))
