@@ -3,7 +3,7 @@ Image Tracker using OpenCV Tracking API
 
 # sample results
 ## Tracking
-![Tracking]('./videos/tracking/TrackerTLD.mp4')
+![Tracking](https://github.com/ktro2828/Tracker.git/videos/tracking/TrackerTLD.mp4)
 
 ## OpticalFlow
-![OpticalFlow]('./videos/opticalflow/test.mp4')
+![OpticalFlow](https://github.com/ktro2828/Tracker.git/videos/opticalflow/test.mp4)
