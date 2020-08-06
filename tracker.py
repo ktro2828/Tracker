@@ -10,8 +10,8 @@ class Tracker(object):
     def __init__(self):
         self.trakcer, self.tracker_name = self._select_tracker()
 
-        if os.path.exists('./videos/') is False:
-            os.makedirs('./videos')
+        if os.path.exists('./videos/tracking') is False:
+            os.makedirs('./videos/tracking')
 
         self.cap = cv2.VideoCapture(0)
 
@@ -21,7 +21,7 @@ class Tracker(object):
         frame_rate = int(self.cap.get(cv2.CAP_PROP_FPS))
         fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
         self.writer = cv2.VideoWriter(
-            './videos/{}.mp4'.format(self.tracker_name),
+            './videos/tracking/{}.mp4'.format(self.tracker_name),
             fourcc, frame_rate, size)
 
     def _select_tracker(self):
